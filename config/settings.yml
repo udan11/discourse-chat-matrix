@@ -1,0 +1,20 @@
+plugins:
+  discourse_chat_matrix_enabled:
+    default: false
+    validator: ChatMatrixEnabledValidator
+  matrix_homeserver:
+    default: ''
+  matrix_server_name:
+    default: ''
+  matrix_hs_token:
+    default: ''
+  matrix_as_token:
+    default: ''
+  chat_username:
+    default: '{user}-m'
+  chat_channel_name:
+    default: '{room}'
+  matrix_user_id:
+    default: '@{user}-d:{server_name}'
+  matrix_room_alias:
+    default: '#{room}-d:{server_name}'

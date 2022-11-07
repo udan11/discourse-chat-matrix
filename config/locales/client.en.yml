@@ -1,0 +1,12 @@
+en:
+  admin_js:
+    chat_matrix:
+      title: "Matrix Integration"
+
+      synapse_config:
+        title: "Synapse Config"
+        description: "This is a sample Synapse Application Service configuration that can be used to register the Discourse service implemented by the plugin. This is secret information, keep the tokens hidden!"
+
+      regenerate_tokens: "Regenerate Tokens"
+      copy_to_clipboard: "Copy to Clipboard"
+      copied_to_clipboard: "Copied!"

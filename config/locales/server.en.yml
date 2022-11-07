@@ -1,0 +1,13 @@
+en:
+  site_settings:
+    discourse_chat_matrix_enabled: 'Enable discourse-chat-matrix plugin'
+    matrix_homeserver: 'URL to the Matrix home server this instance is bridging with'
+    matrix_server_name: 'Server name used to build user IDs and room aliases'
+    matrix_hs_token: 'Token homeserver is going to user to authenticate requests to application service'
+    matrix_as_token: 'Token application service is going to user to authenticate requests to homeserver'
+    matrix_user_id: 'Format for Matrix user IDs mapped from Discourse'
+    matrix_room_alias: 'Format for Matrix room aliases mapped from Discourse'
+
+    errors:
+      requires_chat: 'Chat plugin must be enabled'
+      blank_matrix_homeserver: 'Matrix homeserver URL must be configured'

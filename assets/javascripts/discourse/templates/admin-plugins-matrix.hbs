@@ -1,0 +1,21 @@
+<h1>{{i18n "chat_matrix.synapse_config.title"}}</h1>
+
+<p>{{i18n "chat_matrix.synapse_config.description"}}</p>
+
+<textarea class="matrix-config" readonly>
+{{this.model.synapse_config}}
+</textarea>
+
+<DButton
+  @class="btn-danger"
+  @icon="sync"
+  @label="chat_matrix.regenerate_tokens"
+  @action={{action "regenerateTokens"}}
+/>
+
+<DButton
+  @class="btn-default"
+  @icon="far-clipboard"
+  @label={{if copied "chat_matrix.copied_to_clipboard" "chat_matrix.copy_to_clipboard"}}
+  @action={{action "copyToClipboard" this.model.synapse_config}}
+/>
