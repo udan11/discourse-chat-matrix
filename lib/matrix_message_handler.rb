@@ -88,9 +88,7 @@ module DiscourseChatMatrix::MatrixMessageHandler
     chatable = chat_channel.chatable
 
     if guardian.can_delete_chat?(chat_message, chatable)
-      if chat_message.trash!(user)
-        ChatPublisher.publish_delete!(chat_channel, chat_message)
-      end
+      ChatPublisher.publish_delete!(chat_channel, chat_message) if chat_message.trash!(user)
     end
   end
 end

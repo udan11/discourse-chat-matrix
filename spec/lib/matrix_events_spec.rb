@@ -6,9 +6,7 @@ describe DiscourseChatMatrix::MatrixEvents do
     described_class.reset_handlers!
   end
 
-  after do
-    described_class.instance_variable_set(:@handlers, @old_handlers)
-  end
+  after { described_class.instance_variable_set(:@handlers, @old_handlers) }
 
   describe "#handlers" do
     it "returns an empty array when no event was set" do
