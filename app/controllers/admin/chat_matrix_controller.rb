@@ -18,16 +18,18 @@ class DiscourseChatMatrix::AdminChatMatrixController < Admin::AdminController
 
   def synapse_config
     user_regex =
-      SiteSetting
-        .matrix_user_id
-        .gsub("{user}", ".*")
-        .gsub("{server_name}", DiscourseChatMatrix.server_name)
+      Regexp.escape(
+        SiteSetting
+          .matrix_user_id
+          .gsub("{server_name}", DiscourseChatMatrix.server_name)
+        ).gsub("\\{user\\}", ".*")
 
     alias_regex =
-      SiteSetting
-        .matrix_room_alias
-        .gsub("{room}", ".*")
-        .gsub("{server_name}", DiscourseChatMatrix.server_name)
+      Regexp.escape(
+        SiteSetting
+          .matrix_room_alias
+          .gsub("{server_name}", DiscourseChatMatrix.server_name)
+        ).gsub("\\{room\\}", ".*")
 
     <<~CONFIG
       id: "Discourse Chat Bridge"
@@ -38,10 +40,10 @@ class DiscourseChatMatrix::AdminChatMatrixController < Admin::AdminController
       namespaces:
         users:
           - exclusive: true
-            regex: "#{user_regex}"
+            regex: '#{user_regex}'
         aliases:
           - exclusive: false
-            regex: "#{alias_regex}"
+            regex: '#{alias_regex}'
         rooms: []
     CONFIG
   end
