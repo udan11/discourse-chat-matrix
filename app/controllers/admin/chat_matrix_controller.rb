@@ -20,6 +20,7 @@ class DiscourseChatMatrix::AdminChatMatrixController < Admin::AdminController
     user_regex =
       SiteSetting
         .matrix_user_id
+        .gsub(".", "\.")
         .gsub("{user}", ".*")
         .gsub("{server_name}", DiscourseChatMatrix.server_name)
 
