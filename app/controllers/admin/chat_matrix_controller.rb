@@ -20,9 +20,9 @@ class DiscourseChatMatrix::AdminChatMatrixController < Admin::AdminController
     user_regex =
       SiteSetting
         .matrix_user_id
+        .gsub("{server_name}", DiscourseChatMatrix.server_name)
         .gsub(".", "\.")
         .gsub("{user}", ".*")
-        .gsub("{server_name}", DiscourseChatMatrix.server_name)
 
     alias_regex =
       SiteSetting
